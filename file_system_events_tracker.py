@@ -11,41 +11,41 @@ from watchdog.events import FileSystemEventHandler
 
 from_dir = "C:/Users/preet/Downloads"
 
-# Event Hanlder Class
+# Clase event handler
 class FileEventHandler(FileSystemEventHandler):
 
     def on_created(self, event):
-        print(f"Hey, {event.src_path} has been created!")
+        print(f"Oye, {event.src_path} ha sido creado!")
 
     def on_deleted(self, event):
-        print(f"Oops! Someone deleted {event.src_path}!")
+        print(f"¡lo siento! Alguien borró {event.src_path}!")
 
     def on_modified(self, event):
-        print(f"Hey there!, {event.src_path} has been modified")
+        print(f"¡Hola!, {event.src_path} ha sido modificado")
     
     def on_moved(self, event):
-        print(f"Someone moved {event.src_path} to {event.dest_path}")
+        print(f"Alguien movió {event.src_path} a {event.dest_path}")
         
 
 
-# Initialize Event Handler Class
+# Inicia la clase event handler
 event_handler = FileEventHandler()
 
-# Initialize Observer
+# Inicia Observer
 observer = Observer()
 
-# Schedule the Observer
+# Programa Observer
 observer.schedule(event_handler, from_dir, recursive=True)
 
 
-# Start the Observer
+# Inicia Observer
 observer.start()
 
 try:
     while True:
         time.sleep(2)
-        print("running...")
+        print("ejecutando...")
 except KeyboardInterrupt:
-    print("stopped!")
+    print("¡detenido!")
     observer.stop()
 
