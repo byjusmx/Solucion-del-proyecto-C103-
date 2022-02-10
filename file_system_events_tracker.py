@@ -9,16 +9,16 @@ import logging
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from_dir = "C:/Users/preet/Downloads"
+from_dir = "C:/Users/Byjus/Downloads"
 
 # Clase event handler
 class FileEventHandler(FileSystemEventHandler):
 
     def on_created(self, event):
-        print(f"Oye, {event.src_path} ha sido creado!")
+        print(f"¡Oye, {event.src_path} ha sido creado!")
 
     def on_deleted(self, event):
-        print(f"¡lo siento! Alguien borró {event.src_path}!")
+        print(f"¡Lo siento! ¡Alguien borró {event.src_path}!")
 
     def on_modified(self, event):
         print(f"¡Hola!, {event.src_path} ha sido modificado")
